@@ -1,10 +1,12 @@
-let isChecked = false; // Começa desativado (false)
+const checkboxBtn = document.getElementById('checkboxBtn');
+const bgRect = document.getElementById('bgRect');
+let isChecked = false;
 
-function toggleCheckbox() {
+checkboxBtn.addEventListener('click', function() {
     isChecked = !isChecked;
     updateCheckboxUI();
 
-    // Envia o estado (true/false) para o script .lua no FiveM
+    // Envia evento para o .lua do FiveM
     if (window.GetParentResourceName) {
         fetch(`https://${GetParentResourceName()}/checkboxToggle`, {
             method: 'POST',
@@ -12,24 +14,21 @@ function toggleCheckbox() {
             body: JSON.stringify({ checked: isChecked })
         });
     }
-}
+});
 
 function updateCheckboxUI() {
-    const checkMark = document.getElementById('checkMark');
-    const bgRect = document.getElementById('bgRect');
-
     if (isChecked) {
-        checkMark.style.display = 'block';
-        bgRect.setAttribute('fill', '#222226'); // Destaque suave ao ativar
-        bgRect.setAttribute('stroke', '#FFFFFF'); // Borda branca ao ativar
+        checkboxBtn.classList.add('checked');
+        bgRect.setAttribute('fill', '#222226');
+        bgRect.setAttribute('stroke', '#FFFFFF');
     } else {
-        checkMark.style.display = 'none';
-        bgRect.setAttribute('fill', '#121214'); // Estilo base do painel
+        checkboxBtn.classList.remove('checked');
+        bgRect.setAttribute('fill', '#121214');
         bgRect.setAttribute('stroke', '#1C1C1F');
     }
 }
 
-// Ouvinte para alterar o estado a partir do seu .lua se necessário
+// Ouvinte para alternar estado via Lua
 window.addEventListener('message', function(event) {
     if (event.data.action === "setState") {
         isChecked = event.data.status;
