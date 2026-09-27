@@ -18,19 +18,34 @@ html, body {
 .checkbox-container {
   width: 28px;
   height: 28px;
+  background: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
-  user-select: none;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.1s ease;
+  transition: transform 0.15s ease-in-out;
 }
 
 .checkbox-container svg {
   width: 28px;
   height: 28px;
+  pointer-events: none; /* Permite que o clique passe direto para o botão */
 }
 
+/* Oculta/Exibe o ícone de Check */
+.check-icon {
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.checkbox-container.checked .check-icon {
+  opacity: 1;
+}
+
+/* Efeito ao clicar (Animação de pressionar) */
 .checkbox-container:active {
-  transform: scale(0.92);
+  transform: scale(0.85);
 }
