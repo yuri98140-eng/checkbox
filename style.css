@@ -1,39 +1,29 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Fundo transparente para integrar no DUI do FiveM */
 html, body {
   background: transparent !important;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-.checkmark {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  background-color: #222222;
-  border-radius: 25%;
-  transition: background-color 0.2s ease;
-  position: relative;
+.checkbox-container {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
 }
 
-.checkmark.checked {
-  background-color: #8B4513;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 33%;
-  top: 18%;
-  width: 22%;
-  height: 44%;
-  border: solid #ffffff;
-  border-width: 0 10% 10% 0;
-  transform: rotate(45deg);
-}
-
-.checkmark.checked:after {
-  display: block;
+.checkbox-container:active {
+  transform: scale(0.92);
 }
