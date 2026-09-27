@@ -8,16 +8,16 @@
 </head>
 <body>
 
-  <!-- Container do Checkbox -->
-  <div class="checkbox-container" id="checkboxBtn" onclick="toggleCheckbox()">
+  <!-- Checkbox com clique direto -->
+  <button type="button" class="checkbox-container" id="checkboxBtn">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Fundo do Checkbox -->
       <rect id="bgRect" x="0.5" y="0.5" width="27" height="27" rx="7" fill="#121214" stroke="#1C1C1F" stroke-width="1"/>
       
       <!-- Ícone V (Check) Branco -->
-      <path id="checkMark" d="M8 14L12 18L20 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
+      <path id="checkMark" d="M8 14L12 18L20 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"/>
     </svg>
-  </div>
+  </button>
 
   <script src="script.js"></script>
 </body>
