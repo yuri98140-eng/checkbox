@@ -5,8 +5,7 @@
 }
 
 html, body {
-  background-color: #ffffff !important; /* Fundo do site 100% branco */
-  background: #ffffff !important;
+  background: transparent !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +14,6 @@ html, body {
   overflow: hidden;
 }
 
-/* CONTAINER DO CHECKBOX */
 .custom-checkbox {
   display: inline-block;
   position: relative;
@@ -24,7 +22,6 @@ html, body {
   cursor: pointer;
 }
 
-/* ESCONDE O CHECKBOX PADRÃO */
 .custom-checkbox input {
   position: absolute;
   opacity: 0;
@@ -33,7 +30,6 @@ html, body {
   width: 0;
 }
 
-/* CAIXA DESMARCADA (FUNDO CINZA ESCURO QUANDO DESMARCADO) */
 .checkmark {
   position: absolute;
   top: 0;
@@ -42,15 +38,13 @@ html, body {
   width: 28px;
   background-color: #222222;
   border-radius: 7px;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
-/* CAIXA MARCADA (COR MARROM) */
 .custom-checkbox input:checked ~ .checkmark {
-  background-color: #8B4513; /* Cor Marrom */
+  background-color: #8B4513;
 }
 
-/* ÍCONE DE CHECK (V) EM BRANCO */
 .checkmark:after {
   content: "";
   position: absolute;
@@ -62,9 +56,11 @@ html, body {
   border: solid #ffffff;
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
-/* EXIBE O CHECK QUANDO MARCADO */
 .custom-checkbox input:checked ~ .checkmark:after {
   display: block;
+  opacity: 1;
 }
