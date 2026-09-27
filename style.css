@@ -6,7 +6,7 @@
 
 html, body {
   background-color: transparent !important;
-  background: #ffffff !important;
+  background: transparent !important;
   width: 100vw;
   height: 100vh;
   display: flex;
