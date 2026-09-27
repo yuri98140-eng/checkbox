@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d0f17;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* CONTAINER DO CHECKBOX */
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* ESCONDE O CHECKBOX PADRÃO DO NAVEGADOR */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* CAIXA DESMARCADA (FUNDO ESCURO ARREDONDADO) */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #1a1a1a; /* Cor quando desmarcado */
+  border-radius: 6px; /* Cantos arredondados iguais à imagem */
+  transition: all 0.2s ease;
+}
+
+/* CAIXA MARCADA (COR MARROM) */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #8B4513; /* Cor Marrom */
+}
+
+/* CRIA O ÍCONE DE "CHECK" (V) EM BRANCO */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* EXIBE O CHECK QUANDO ESTIVER MARCADO */
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
